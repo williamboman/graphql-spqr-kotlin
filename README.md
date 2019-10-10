@@ -1,5 +1,7 @@
 # graphql-spqr-kotlin
 
+[![CircleCI](https://circleci.com/gh/williamboman/graphql-spqr-kotlin.svg?style=svg)](https://circleci.com/gh/williamboman/graphql-spqr-kotlin)
+
 > Kotlin compatibility library for [graphql-spqr](https://github.com/leangen/graphql-spqr).
 
 This library aims to make it possible to seamlessly use graphql-spqr together with Kotlin. **Do not use this in production code, it's a POC.**
