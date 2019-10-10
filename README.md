@@ -16,6 +16,18 @@ This library aims to make it possible to seamlessly use graphql-spqr together wi
 </dependencies>
 ```
 
+## Usage
+
+```java
+import com.github.williamboman.graphql.transformer.KotlinTypesSchemaTransformer;
+import graphql.schema.GraphQLSchema;
+import io.leangen.graphql.GraphQLSchemaGenerator;
+
+GraphQLSchema graphqlSchema = new GraphQLSchemaGenerator()
+    .withSchemaTransformers(new KotlinTypesSchemaTransformer())
+    .generate();
+```
+
 ## Configuration
 
 To make it possible to use annotations for input arguments you need to ensure set `javaParameters=true` in your Kotlin compilation configuration.
