@@ -22,6 +22,13 @@ This library aims to make it possible to seamlessly use graphql-spqr together wi
 
 Please refer to https://github.com/leangen/graphql-spqr for information on how to use graphql-spqr.
 
+### Nullable GraphQL types
+
+Due to how [nullability works in Kotlin](https://kotlinlang.org/docs/reference/null-safety.html), we can leverage the type system directly when doing
+reflection to determine nullability in the schema. This means you don't have to rely on using the `@GraphQLNonNull` annotation to declare fields as non-nullable.
+
+### Example GraphQL API
+
 ```kt
 import com.github.williamboman.graphql.transformer.KotlinTypesSchemaTransformer
 import graphql.schema.GraphQLSchema
