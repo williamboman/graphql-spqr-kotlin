@@ -13,7 +13,7 @@ This library aims to make it possible to seamlessly use graphql-spqr together wi
     <dependency>
         <groupId>com.github.williamboman.graphql</groupId>
         <artifactId>spqr-kotlin</artifactId>
-        <version>0.10.0</version>
+        <version>0.0.1-alpha</version>
     </dependency>
 </dependencies>
 ```
