@@ -28,6 +28,10 @@
     </scm>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <bintray.repo>williamboman/graphql-spqr-kotlin</bintray.repo>
+        <bintray.package>graphql-spqr-kotlin</bintray.package>
+
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
@@ -38,6 +42,14 @@
 
         <graphql-spqr.version>0.10.0</graphql-spqr.version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-williamboman-graphql-spqr-kotlin</id>
+            <name>williamboman-graphql-spqr-kotlin</name>
+            <url>https://api.bintray.com/maven/williamboman/graphql-spqr-kotlin/graphql-spqr-kotlin/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
