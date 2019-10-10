@@ -58,7 +58,7 @@ class UserResolver {
     fun getNullableUsers(): List<User?> = getNullableUsers()
 
     @GraphQLMutation(name = "createUser")
-    fun createUser(input: UserInput): User = createUser(input)
+    fun createUser(input: UserInput): User? = createUser(input)
 
 }
 
@@ -66,30 +66,31 @@ val graphqlSchema = GraphQLSchemaGenerator()
     .withOperationsFromSingletons(UserResolver())
     .withSchemaTransformers(KotlinTypesSchemaTransformer())
     .generate()
+```
 
-/**
-   The above will produce the following schema:
+The above would generate the following GraphQL schema.
 
-   type User {
-        name: String!
-        isAdmin: Boolean!
-   }
+```graphql
+type User {
+    name: String!
+    isAdmin: Boolean!
+}
 
-   input UserInput {
-        firstname: String!
-        lastname: String!
-        middlename: String
-   }
+input UserInput {
+    firstname: String!
+    lastname: String!
+    middlename: String
+}
 
-   type Query {
-        user(id: Int!): User
-        users: [User!]!
-        nullableUsers: [User]!
-   }
+type Query {
+    user(id: Int!): User
+    users: [User!]!
+    nullableUsers: [User]!
+}
 
-   type Mutation {
-        createUser(input: UserInput!): User!
-   }
+type Mutation {
+    createUser(input: UserInput!): User
+}
 ```
 
 ## Configuration
