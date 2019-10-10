@@ -18,6 +18,8 @@ This library aims to make it possible to seamlessly use graphql-spqr together wi
 
 ## Usage
 
+Please refer to https://github.com/leangen/graphql-spqr for information on how to use graphql-spqr.
+
 ```kt
 import com.github.williamboman.graphql.transformer.KotlinTypesSchemaTransformer
 import graphql.schema.GraphQLSchema
