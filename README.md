@@ -11,7 +11,7 @@ This library aims to make it possible to seamlessly use graphql-spqr together wi
 ```xml
 <dependencies>
     <dependency>
-        <groupId>com.williamboman.graphql</groupId>
+        <groupId>com.github.williamboman.graphql</groupId>
         <artifactId>spqr-kotlin</artifactId>
         <version>0.10.0</version>
     </dependency>
