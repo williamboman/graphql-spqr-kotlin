@@ -6,7 +6,7 @@
 
     <groupId>com.williamboman.graphql</groupId>
     <artifactId>spqr-kotlin</artifactId>
-    <version>0.10.0</version>
+    <version>0.0.1-alpha</version>
     <packaging>jar</packaging>
 
     <name>graphql-spqr-kotlin</name>
