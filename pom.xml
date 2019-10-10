@@ -1,10 +1,31 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.williamboman.graphql</groupId>
-    <artifactId>graphql-spqr-kotlin</artifactId>
+    <artifactId>spqr-kotlin</artifactId>
     <version>0.10.0</version>
+    <packaging>jar</packaging>
+
+    <name>graphql-spqr-kotlin</name>
+    <description>
+        This library aims to make it possible to seamlessly use graphql-spqr together with Kotlin.
+        Do not use this in production code, it's a POC.
+    </description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/williamboman/graphql-spqr-kotlin</url>
+    </scm>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -81,5 +102,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
