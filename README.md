@@ -68,6 +68,8 @@ val graphqlSchema = GraphQLSchemaGenerator()
     .generate()
 ```
 
+The above would generate the following GraphQL schema.
+
 ```graphql
 type User {
     name: String!
