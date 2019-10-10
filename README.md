@@ -18,14 +18,74 @@ This library aims to make it possible to seamlessly use graphql-spqr together wi
 
 ## Usage
 
-```java
-import com.github.williamboman.graphql.transformer.KotlinTypesSchemaTransformer;
-import graphql.schema.GraphQLSchema;
-import io.leangen.graphql.GraphQLSchemaGenerator;
+```kt
+import com.github.williamboman.graphql.transformer.KotlinTypesSchemaTransformer
+import graphql.schema.GraphQLSchema
+import io.leangen.graphql.GraphQLSchemaGenerator
+import io.leangen.graphql.annotations.GraphQLIgnore
+import io.leangen.graphql.annotations.GraphQLMutation
+import io.leangen.graphql.annotations.GraphQLQuery
+import io.leangen.graphql.annotations.types.GraphQLType
 
-GraphQLSchema graphqlSchema = new GraphQLSchemaGenerator()
-    .withSchemaTransformers(new KotlinTypesSchemaTransformer())
-    .generate();
+@GraphQLType(name = "User")
+data class User(
+    val name: String,
+    val isAdmin: Boolean,
+    @get:GraphQLIgnore
+    val internalField: String
+)
+
+@GraphQLType(name = "UserInput")
+data class UserInput(
+    val firstname: String,
+    val lastname: String,
+    val middlename: String?
+)
+
+class UserResolver {
+
+    @GraphQLQuery(name = "user")
+    fun getUser(id: Int!): User? = getUser(id)
+
+    @GraphQLQuery(name = "users")
+    fun getUsers(): List<User> = getUsers()
+
+    @GraphQLQuery(name = "nullableUsers")
+    fun getNullableUsers(): List<User?> = getNullableUsers()
+
+    @GraphQLMutation(name = "createUser")
+    fun createUser(input: UserInput): User = createUser(input)
+
+}
+
+val graphqlSchema = GraphQLSchemaGenerator()
+    .withOperationsFromSingletons(UserResolver())
+    .withSchemaTransformers(KotlinTypesSchemaTransformer())
+    .generate()
+
+/**
+   The above will produce the following schema:
+
+   type User {
+        name: String!
+        isAdmin: Boolean!
+   }
+
+   input UserInput {
+        firstname: String!
+        lastname: String!
+        middlename: String
+   }
+
+   type Query {
+        user(id: Int!): User
+        users: [User!]!
+        nullableUsers: [User]!
+   }
+
+   type Mutation {
+        createUser(input: UserInput!): User!
+   }
 ```
 
 ## Configuration
