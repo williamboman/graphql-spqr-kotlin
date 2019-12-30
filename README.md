@@ -56,7 +56,7 @@ data class UserInput(
 class UserResolver {
 
     @GraphQLQuery(name = "user")
-    fun getUser(id: Int!): User? = getUser(id)
+    fun getUser(id: Int): User? = getUser(id)
 
     @GraphQLQuery(name = "users")
     fun getUsers(): List<User> = getUsers()
