@@ -70,7 +70,7 @@ private fun <T : GraphQLType> markNonNullable(
 ) {
     if (fieldType is GraphQLList) {
         val wrappedType = fieldType.wrappedType
-        if (kCallable.returnType.arguments[0]?.type?.isMarkedNullable == false) {
+        if (kCallable.returnType.arguments.size > 0 && kCallable.returnType.arguments[0]?.type?.isMarkedNullable == false) {
             setFieldType(GraphQLNonNull(GraphQLList.list(GraphQLNonNull(wrappedType))) as T)
         } else {
             setFieldType(GraphQLNonNull(fieldType) as T)
